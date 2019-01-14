@@ -28,7 +28,12 @@
 
 <script src="../build/ckeditor.js"></script>
 <script>
-	InlineEditor.create( document.querySelector( '#editor' ) )
+	InlineEditor.create( document.querySelector( '#editor' ) , {
+		cloudServices: {
+			tokenUrl: 'https://33333.cke-cs.com/token/dev/ijrDsqFix838Gh3wGO3F77FSW94BwcLXprJ4APSp3XQ26xsUHTi0jcb1hoBt',
+			uploadUrl: 'https://33333.cke-cs.com/easyimage/upload/'
+		}
+	} )
 		.then( editor => {
 			window.editor = editor;
 		} )

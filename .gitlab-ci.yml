@@ -1,0 +1,28 @@
+image: node:6
+
+stages:
+	- build
+	- deploy
+
+before_script:
+	- npm set registry http://npm-registry.rever.vn
+	- npm install
+
+cache:
+	paths:
+		- node_modules/
+
+build:
+	stage: build
+	script:
+		- npm run build
+	artifacts:
+		paths:
+			- build/
+
+deploy:
+	only:
+		- master
+	stage: deploy
+	script:
+		- npm run ci-publish
