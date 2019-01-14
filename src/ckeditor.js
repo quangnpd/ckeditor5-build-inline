@@ -16,7 +16,6 @@ import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
-import ImageEditing from '@ckeditor/ckeditor5-image/src/image/imageediting';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
@@ -28,6 +27,7 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import InsertImage from './InsertImage';
 
 export default class InlineEditor extends InlineEditorBase {}
 
@@ -47,47 +47,31 @@ InlineEditor.builtinPlugins = [
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
-	ImageEditing,
 	Link,
 	List,
 	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
 	Table,
-	TableToolbar
+	TableToolbar,
+	InsertImage
 ];
 
 // Editor configuration.
 InlineEditor.defaultConfig = {
 	toolbar: {
 		items: [
-			'heading',
-			'|',
 			'bold',
 			'italic',
 			'link',
-			'bulletedList',
-			'numberedList',
-			'imageUpload',
-			'blockQuote',
-			'insertTable',
-			'mediaEmbed',
+			'|',
 			'undo',
 			'redo'
 		]
 	},
 	image: {
 		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
 			'imageInsert'
-		]
-	},
-	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
